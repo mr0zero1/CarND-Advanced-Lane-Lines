@@ -117,7 +117,7 @@ I did this in lines # through # in my code in `def curve_rad_meter` as follows:
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step in lines # through # in my code in  in the function `lane_detect()`.  Here is an example of my result on a test image:
 
 ![alt text][image6]
 
@@ -127,7 +127,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+![alt text][video1]
 
 ---
 
