@@ -134,5 +134,11 @@ Here's a [link to my video result][video1]
 ### Discussion
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+There are several cases to fail: 
+ * My PipeLines fails when it detects other car as lane. (frame 765)
+ * Bad road condition such as yellow lane paint is removed. (frame 577)
+ * When road color changed , it detect it as edges. (frame 639) 
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+I think it should remove non lane pixels by using algorithms such as RANSAC.
+
+
