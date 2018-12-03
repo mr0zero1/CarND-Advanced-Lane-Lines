@@ -85,7 +85,35 @@ Then I did some other stuff and fit my lane lines with a 2nd order polynomial ki
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I did this in lines # through # in my code in `function curve_rad_meter`
+python```
+  def curve_rad_meter(self, img, leftx, lefty, rightx, righty, ploty):
+
+    # Define conversions in x and y from pixels space to meters
+    (xm_per_pix, ym_per_pix) = self.img_size_m(img)
+    #left_fit = np.polyfit(lefty, leftx, 2)  # linear regression for all read pixels (find center line)
+    #right_fit = np.polyfit(righty, rightx, 2)
+
+    lefty =  [y * ym_per_pix for y in lefty] 
+    leftx =  [x * xm_per_pix for x in leftx] 
+    righty = [y * ym_per_pix for y in righty] 
+    rightx = [x * xm_per_pix for x in rightx] 
+
+    y_eval = np.max(ploty)
+    
+    
+    # Fit new polynomials to x,y in world space
+    left_fit_cr  = np.polyfit(lefty , leftx , 2)
+    right_fit_cr = np.polyfit(righty, rightx, 2)
+    # Calculate the new radii of curvature
+    left_curverad = ((1 + (2*left_fit_cr[0]*y_eval*ym_per_pix + left_fit_cr[1])**2)**1.5) / np.absolute(2*left_fit_cr[0])
+    right_curverad = ((1 + (2*right_fit_cr[0]*y_eval*ym_per_pix + right_fit_cr[1])**2)**1.5) / np.absolute(2*right_fit_cr[0])
+    # Now our radius of curvature is in meters
+
+    
+    return (left_curverad, right_curverad)
+    # Example values: 632.1 m    626.2 m
+```
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
